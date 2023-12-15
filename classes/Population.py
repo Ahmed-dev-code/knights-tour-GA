@@ -1,6 +1,7 @@
 from typing import List, Tuple
 from classes.Knight import Knight
 import random
+import config
 
 
 class Population:
@@ -31,7 +32,8 @@ class Population:
         # return the best knight and its fitness value
         return self.knights[0], self.knights[0].fitness
 
-    def tournament_selection(self, size: int = 3) -> List[Knight]:
+    def tournament_selection(self) -> List[Knight]:
+        size = config.TOURNAMENT_SELECTION_SIZE
         # Check if the population size is sufficient for the tournament
         if len(self.knights) < size:
             raise ValueError("Population size is less than the tournament size.")
@@ -45,8 +47,6 @@ class Population:
         )[:2]
 
     def create_new_generation(self):
-        mutation_rate = 1 / 63
-
         # create a new generation of knights by applying crossover and mutation
         new_generation = []
         for _ in range(self.population_size // 2):
@@ -56,8 +56,8 @@ class Population:
             child_chromosome = parent1.chromosome.crossover(parent2.chromosome)
             child2_chromosome = parent2.chromosome.crossover(parent1.chromosome)
             # mutation
-            child_chromosome.mutation(mutation_rate)
-            child2_chromosome.mutation(mutation_rate)
+            child_chromosome.mutation()
+            child2_chromosome.mutation()
 
             # create new knights with the new chromosomes
             new_knight = Knight(chromosome=child_chromosome)

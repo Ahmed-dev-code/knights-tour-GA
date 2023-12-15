@@ -1,9 +1,10 @@
 from classes.Population import Population
 from classes.Board import Board
+import config
 
 
 def main():
-    population_size = 50
+    population_size = config.POPULATION_SIZE
     # create the initial population
     population = Population(population_size)
 

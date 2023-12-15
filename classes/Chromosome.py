@@ -1,5 +1,6 @@
 from __future__ import annotations
 import random
+import config
 
 class Chromosome:
     
@@ -15,8 +16,9 @@ class Chromosome:
         new_genes = self.genes[:crossover_point] + partner.genes[crossover_point:]
         return Chromosome(new_genes)
     
-    def mutation(self, mutation_rate: float):
+    def mutation(self):
         # Introduce random mutations with a given probability (mutation_rate)
+        mutation_rate = config.MUTATION_RATE
         for i in range(len(self.genes)):
             if random.random() < mutation_rate:
                 # Replace a gene with a random move
