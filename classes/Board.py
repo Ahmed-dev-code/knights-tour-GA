@@ -1,5 +1,6 @@
 import pygame
 import sys
+import config
 
 
 class Board:
@@ -130,7 +131,7 @@ class Board:
             self.draw_board(screen)
 
             pygame.display.flip()
-            pygame.time.delay(500)  # Pause for a short duration to visualize each move
+            pygame.time.delay(config.DELAY)  # Pause for a short duration to visualize each move
 
         # Wait for the user to close the window
         while True:

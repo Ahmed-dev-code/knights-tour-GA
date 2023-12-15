@@ -9,3 +9,6 @@ MUTATION_RATE = 1/63
 
 # Sample size for tournament selection
 TOURNAMENT_SELECTION_SIZE = 3
+
+# time delay between each move of the knight
+DELAY = 250
