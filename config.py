@@ -1,3 +1,6 @@
+# Starting position 
+STARTING_POSITION = (0,0)
+
 # Population size for the genetic algorithm
 POPULATION_SIZE = 50
 

@@ -1,5 +1,6 @@
 import random
 from classes.Chromosome import Chromosome
+import config
 
 moves = [
     (-2, 1),  # 1: up-right
@@ -19,7 +20,7 @@ class Knight:
             self.chromosome = Chromosome()
         else:
             self.chromosome = chromosome
-        self.position = (0, 0)
+        self.position = config.STARTING_POSITION
         self.fitness = 0
         self.path = []
         self.path.append(self.position)
